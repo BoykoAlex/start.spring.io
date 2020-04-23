@@ -19,7 +19,7 @@ import { Fields, Loading } from './common/builder'
 import { Form } from './common/form'
 import { Header, SideLeft, SideRight } from './common/layout'
 import { InitializrContext } from './reducer/Initializr'
-import { getConfig, getInfo, getProject } from './utils/ApiUtils'
+import { getConfig, getInfo, getProject, generateProject } from './utils/ApiUtils'
 
 const Explore = lazy(() => import('./common/explore/Explore.js'))
 const Share = lazy(() => import('./common/share/Share.js'))
@@ -64,17 +64,27 @@ export default function Application() {
       return
     }
     setGenerating(true)
-    const url = `${windowsUtils.origin}/starter.zip`
-    const project = await getProject(
+//    const url = `${windowsUtils.origin}/starter.zip`
+//    const project = await getProject(
+//      url,
+//      values,
+//      get(dependencies, 'list')
+//    ).catch(() => {
+//      toast.error(`Could not connect to server. Please check your network.`)
+//      setGenerating(false)
+//    })
+//    setGenerating(false)
+//  FileSaver.saveAs(project, `${get(values, 'meta.artifact')}.zip`)
+    const url = `${windowsUtils.origin}/generate`
+    await generateProject(
       url,
       values,
       get(dependencies, 'list')
-    ).catch(() => {
-      toast.error(`Could not connect to server. Please check your network.`)
+    ).catch((error) => {
+      toast.error(`Error: ${error.message}`)
       setGenerating(false)
     })
     setGenerating(false)
-    FileSaver.saveAs(project, `${get(values, 'meta.artifact')}.zip`)
   }
 
   const onExplore = async () => {

@@ -1354,6 +1354,7 @@ initializr:
     - name : 2.1.1.
       id: 2.1.1.RELEASE
       default: true
+  project-location-container: /Users/aboyko/generated-projects 
 
 ---
 
