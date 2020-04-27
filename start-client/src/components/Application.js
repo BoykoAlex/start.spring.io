@@ -81,7 +81,7 @@ export default function Application() {
       values,
       get(dependencies, 'list')
     ).catch((error) => {
-      toast.error(`Error: ${error.message}`)
+      toast.error('Could not generate the project.')
       setGenerating(false)
     })
     setGenerating(false)
