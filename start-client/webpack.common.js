@@ -33,9 +33,9 @@ class WebpackGoogleTagManager {
 }
 
 const config = {
-  entry: path.resolve(__dirname, 'src/App.js'),
+  entry: path.resolve(__dirname, './src/App.js'),
   output: {
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, './public'),
     publicPath: '/',
     filename: 'main-[hash].js',
     chunkFilename: 'chunk-[chunkhash].js',
@@ -44,7 +44,7 @@ const config = {
     rules: [
       {
         test: /.(js|jsx)$/,
-        exclude: [path.resolve(__dirname, 'node_modules')],
+        exclude: [path.resolve(__dirname, './node_modules')],
         loader: 'babel-loader',
       },
       {
@@ -58,7 +58,7 @@ const config = {
             loader: 'file-loader',
             options: {
               name: '[hash].[ext]',
-              outputPath: 'fonts/',
+              outputPath: './fonts/',
             },
           },
         ],
@@ -68,8 +68,8 @@ const config = {
   plugins: [
     new CopyPlugin([
       {
-        from: path.resolve(__dirname, 'static'),
-        to: path.resolve(__dirname, 'public'),
+        from: path.resolve(__dirname, './static'),
+        to: path.resolve(__dirname, './public'),
       },
     ]),
     new HtmlWebpackPlugin({
@@ -102,7 +102,7 @@ const config = {
       crossorigin: null,
       icons: [
         {
-          src: path.resolve('src/images/initializr-icon.png'),
+          src: path.resolve('./src/images/initializr-icon.png'),
           sizes: [48, 72, 96, 144, 192, 256, 384, 512],
         },
       ],

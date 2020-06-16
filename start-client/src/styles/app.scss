@@ -1,8 +1,50 @@
-@import 'variables';
-@import 'fonts';
-@import 'mixins';
-@import 'hamburgers';
-@import 'main';
-@import 'toast';
-@import 'dark';
-@import 'responsive';
+
+body.dark {
+  background-color: hsl(198, 100%, 15%);
+  .input {
+    background-color: hsl(198, 100%, 15%);
+  }
+  .radio .caret {
+    background-color: hsl(198, 100%, 15%);
+  }
+  .actions {
+    right: 0px;
+    left: 0px;
+    .actions-container {
+      background-color: hsl(198, 100%, 13%);
+    }
+  }
+  .dialog-dependencies {
+    ul li {
+      background-color: hsl(198, 100%, 15%);
+    }
+    .control-input .input {
+      background-color: hsl(198, 100%, 15%);
+    }
+  }
+
+  h1 {
+    font-size: 2.5em;
+    a {
+      color: #fff;
+      text-decoration: none;
+      //font-size: 2em;
+    }
+    .logo-content {
+      img {
+        padding-right: 10px;
+        vertical-align: middle;
+      }
+      .spring {
+        color: #6db33f;
+        vertical-align: middle;
+        padding-right: 10px;
+      }
+      .postfix {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+
